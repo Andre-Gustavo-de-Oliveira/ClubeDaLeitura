@@ -3,14 +3,6 @@ using ClubeDaLeitura.ConsoleApp.Utilidades;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
-/*
-    Regras de Negócio:
-        ● Campos obrigatórios:
-            ○ Título (2-100 caracteres)
-            ○ Número da edição (número positivo)
-            ○ Ano de publicação (ano válido)
-            ○ Caixa (seleção obrigatória)
-*/
 public class Revista
 {
     public int Id { get; private set; }
