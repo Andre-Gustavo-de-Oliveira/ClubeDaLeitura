@@ -1,3 +1,4 @@
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa;
@@ -39,11 +40,11 @@ public class TelaCaixa
 
         Caixa novaCaixa = ObterDadosCadastrais();
 
-        Caixa[] caixas = repositorioCaixa.SelecionarTodos();
+        EntidadeBase[] caixas = repositorioCaixa.SelecionarTodos();
 
         for (int i = 0; i < caixas.Length; i++)
         {
-            Caixa c = caixas[i];
+            Caixa c = (Caixa)caixas[i];
 
             if (c == null)
                 continue;
@@ -86,11 +87,11 @@ public class TelaCaixa
 
         Caixa caixaAtualizada = ObterDadosCadastrais();
 
-        Caixa[] caixas = repositorioCaixa.SelecionarTodos();
+        EntidadeBase[] caixas = repositorioCaixa.SelecionarTodos();
 
         for (int i = 0; i < caixas.Length; i++)
         {
-            Caixa c = caixas[i];
+            Caixa c = (Caixa)caixas[i];
 
             if (c == null)
                 continue;
@@ -130,11 +131,11 @@ public class TelaCaixa
         Console.Write("Digite o ID do registro que deseja excluir: ");
         int idSelecionado = Convert.ToInt32(Console.ReadLine());
 
-        Revista[] revistas = repositorioRevista.SelecionarTodos();
+        EntidadeBase[] revistas = repositorioRevista.SelecionarTodos();
 
         for (int i = 0; i < revistas.Length; i++)
         {
-            Revista r = revistas[i];
+            Revista r = (Revista)revistas[i];
 
             if (r == null)
                 continue;
@@ -174,11 +175,11 @@ public class TelaCaixa
             "Id", "Etiqueta", "Cor", "Tempo de Empréstimo"
         );
 
-        Caixa[] registros = repositorioCaixa.SelecionarTodos();
+        EntidadeBase[] registros = repositorioCaixa.SelecionarTodos();
 
         for (int i = 0; i < registros.Length; i++)
         {
-            Caixa c = registros[i];
+            Caixa c = (Caixa)registros[i];
 
             if (c == null)
                 continue;

@@ -1,11 +1,19 @@
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.Utilidades;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
-public class Revista
+/*
+    Regras de Negócio:
+        ● Campos obrigatórios:
+            ○ Título (2-100 caracteres)
+            ○ Número da edição (número positivo)
+            ○ Ano de publicação (ano válido)
+            ○ Caixa (seleção obrigatória)
+*/
+public class Revista : EntidadeBase
 {
-    public int Id { get; private set; }
     public string Titulo { get; private set; }
     public int NumeroEdicao { get; private set; }
     public int AnoPublicacao { get; private set; }
@@ -23,6 +31,17 @@ public class Revista
 
     public void Atualizar(Revista revistaAtualizada)
     {
+        Titulo = revistaAtualizada.Titulo;
+        NumeroEdicao = revistaAtualizada.NumeroEdicao;
+        AnoPublicacao = revistaAtualizada.AnoPublicacao;
+        Caixa = revistaAtualizada.Caixa;
+    }
+
+    // substituição de método
+    public override void Atualizar(EntidadeBase entidadeAtualizada)
+    {
+        Revista revistaAtualizada = (Revista)entidadeAtualizada;
+
         Titulo = revistaAtualizada.Titulo;
         NumeroEdicao = revistaAtualizada.NumeroEdicao;
         AnoPublicacao = revistaAtualizada.AnoPublicacao;
